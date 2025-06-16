@@ -165,7 +165,7 @@ def main():
         st.session_state.conversation_history = []
     
     # Hardcoded API key (since we removed the configuration)
-    api_key = "AIzaSyCZ8tI9S_VvA-hNTFsIOLaeL9xoGYrYXEU"
+    api_key = "PUT_YOUR_API_KEY_HERE"
     
     # Sidebar configuration
     with st.sidebar:
