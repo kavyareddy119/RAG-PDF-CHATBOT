@@ -1,8 +1,10 @@
+import os
+os.environ["OPENAI_API_KEY"] ="YOUR_API_KEY"
+
 import streamlit as st
 from PyPDF2 import PdfReader
 import pandas as pd
 import base64
-import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
