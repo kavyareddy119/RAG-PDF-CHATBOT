@@ -12,7 +12,44 @@ from pathlib import Path
 from textwrap import dedent
 import logging
 from logging.handlers import RotatingFileHandler
+
+# Third-party imports
+import numpy as np
+import matplotlib.pyplot as plt
+import requests
+import pandas as pd
+from PIL import Image
+import pytesseract
+from pdf2image import convert_from_bytes
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from markdown import markdown
+from slack_sdk import WebClient
+import smtplib
+import plotly.express as px
+import plotly.graph_objects as go
+from prometheus_client import start_http_server, Counter, Gauge, Histogram, REGISTRY
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+from langchain_community.vectorstores import Chroma, FAISS
+from langchain.chains.question_answering import load_qa_chain
+from langchain.prompts import PromptTemplate
+from langchain.schema import Document
+from ragas import evaluate
+from ragas.metrics import (
+    faithfulness,
+    answer_relevancy,
+    context_recall,
+    context_precision,
+    answer_correctness,
+    answer_similarity
+)
+from datasets import Dataset
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from functools import lru_cache
 ----
+
 
 import os
 os.environ["OPENAI_API_KEY"] ="YOUR_API_KEY"
